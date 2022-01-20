@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Audio Player Example</h1>
+<mat-dialog-content>
+	<mat-slider class="time-slider" min="0" [max]="state?.duration" step="1" [value]="state?.currentTime"
+		(input)="onSliderChangeEnd($event)" [disabled]=" state?.error"></mat-slider>
+	<div>
+		Duration: {{ state?.readableDuration }}<br>
+    Current time: {{ state?.readableCurrentTime }}
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+	<div>
+		<button mat-mini-fab color="warn" (click)="play()">
+    <mat-icon>play_arrow</mat-icon>
+  </button>
+		<button mat-mini-fab color="warn" (click)="pause()">
+    <mat-icon>pause</mat-icon>
+  </button>
+	</div>
+	<div>
+		<button mat-button (click)="close()">Close</button>
+	</div>
+</mat-dialog-actions>
